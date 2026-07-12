@@ -65,7 +65,7 @@ export default function InviteClient({ inviteLink }: { inviteLink: string }) {
                 </button>
 
                 <button style={{
-                    width: '100%', padding: '16px', borderRadius: '16px', border: 'none',
+                    width: '100%', padding: '16px', borderRadius: '16px',
                     backgroundColor: 'var(--card-bg)', color: 'var(--text-primary)', fontWeight: '800', fontSize: '0.95rem',
                     cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
                     fontFamily: 'var(--font-family)', transition: 'all 0.2s', border: '1px solid rgba(0,0,0,0.04)',

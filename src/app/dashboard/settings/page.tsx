@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, User, Bell, MessageSquare, Language, Shield, Lock, HelpCircle, FileText, LogOut, ChevronRight } from "lucide-react";
+import { ArrowLeft, User } from "lucide-react";
 import SettingsClient from "./SettingsClient";
 
 export default async function SettingsPage() {

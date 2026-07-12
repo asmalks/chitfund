@@ -163,12 +163,12 @@ export default async function GroupsList() {
                                         {/* Status left bar */}
                                         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', backgroundColor: s.bar }} />
                                         <div style={{ padding: '18px 20px 18px 24px' }}>
-                                            <div style={{ display: 'flex', justifycontent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                                     <div style={{
                                                         width: '44px', height: '44px', borderRadius: '14px',
                                                         backgroundColor: 'rgba(255,204,0,0.1)',
-                                                        display: 'flex', alignItems: 'center', justifycontent: 'center',
+                                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
                                                         flexShrink: 0
                                                     }}>
                                                         <Crown size={20} color="#B28E00" strokeWidth={2} />
@@ -189,7 +189,7 @@ export default async function GroupsList() {
                                                 }}>{s.label}</span>
                                             </div>
                                             <div style={{
-                                                display: 'flex', justifycontent: 'space-between', alignItems: 'center',
+                                                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                                                 paddingTop: '14px', borderTop: '1px solid var(--input-border)'
                                             }}>
                                                 <div>
@@ -231,12 +231,12 @@ export default async function GroupsList() {
                                     }}>
                                         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', backgroundColor: isDue ? '#FF3B30' : s.bar }} />
                                         <div style={{ padding: '18px 20px 18px 24px' }}>
-                                            <div style={{ display: 'flex', justifycontent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                                     <div style={{
                                                         width: '44px', height: '44px', borderRadius: '14px',
                                                         backgroundColor: 'var(--bg-color)',
-                                                        display: 'flex', alignItems: 'center', justifycontent: 'center', flexShrink: 0
+                                                        display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
                                                     }}>
                                                         <User size={20} color="var(--text-secondary)" strokeWidth={2} />
                                                     </div>
@@ -259,7 +259,7 @@ export default async function GroupsList() {
                                                 </span>
                                             </div>
                                             <div style={{
-                                                display: 'flex', justifycontent: 'space-between', alignItems: 'center',
+                                                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                                                 paddingTop: '14px', borderTop: '1px solid var(--input-border)'
                                             }}>
                                                 <div>
@@ -291,7 +291,7 @@ export default async function GroupsList() {
                     <div style={{
                         width: '72px', height: '72px', borderRadius: '50%',
                         backgroundColor: 'rgba(212,255,0,0.1)',
-                        display: 'flex', alignItems: 'center', justifycontent: 'center',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
                         margin: '0 auto 20px'
                     }}>
                         <Users size={32} color="#D4FF00" strokeWidth={2} />
