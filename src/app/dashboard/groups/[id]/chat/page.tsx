@@ -44,7 +44,7 @@ export default async function ChatPage({ params }: { params: Promise<{ id: strin
                 background: 'linear-gradient(160deg, #1A1A1A 0%, #111 100%)',
                 padding: '48px 20px 18px',
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                borderBottom: '1px solid var(--input-border)', shrink: 0
+                borderBottom: '1px solid var(--input-border)', flexShrink: 0
             }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <Link href={`/dashboard/groups/${id}`} style={{

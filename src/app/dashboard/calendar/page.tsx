@@ -53,7 +53,7 @@ export default function CalendarSystem() {
             <div style={{
                 background: 'linear-gradient(160deg, #1A1A1A 0%, #111 100%)',
                 padding: '48px 20px 28px',
-                position: 'relative', overflow: 'hidden', shrink: 0
+                position: 'relative', overflow: 'hidden', flexShrink: 0
             }}>
                 <div style={{
                     position: 'absolute', top: '-40px', right: '-40px', width: '160px', height: '160px',

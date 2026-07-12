@@ -236,10 +236,9 @@ export default function ChatClient({ groupId }: { groupId: string }) {
                 <div ref={messagesEndRef} />
             </div>
 
-            {/* Input Form Bar */}
             <div style={{
                 backgroundColor: 'var(--card-bg)', borderTop: '1px solid var(--input-border)',
-                padding: '16px 20px 32px', shrink: 0
+                padding: '16px 20px 32px', flexShrink: 0
             }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <button style={{
