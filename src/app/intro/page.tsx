@@ -9,8 +9,8 @@ const features = [
         icon: Users,
         title: "Create Savings Circles",
         desc: "Invite members & manage rotating pools effortlessly.",
-        color: "#D4FF00",
-        bg: "rgba(212,255,0,0.12)"
+        color: "#1A68FF",
+        bg: "rgba(26,104,255,0.12)"
     },
     {
         icon: Wallet,
@@ -57,13 +57,13 @@ export default function Intro() {
             <div style={{
                 position: 'absolute', top: '-80px', right: '-80px',
                 width: '300px', height: '300px',
-                background: 'radial-gradient(circle, rgba(212,255,0,0.15) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(26,104,255,0.15) 0%, transparent 70%)',
                 borderRadius: '50%', pointerEvents: 'none'
             }} />
             <div style={{
                 position: 'absolute', bottom: '10%', left: '-60px',
                 width: '220px', height: '220px',
-                background: 'radial-gradient(circle, rgba(212,255,0,0.08) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(26,104,255,0.08) 0%, transparent 70%)',
                 borderRadius: '50%', pointerEvents: 'none'
             }} />
 
@@ -83,12 +83,12 @@ export default function Intro() {
                 }}>
                     <div style={{
                         display: 'inline-flex', alignItems: 'center', gap: '8px',
-                        backgroundColor: 'rgba(212,255,0,0.1)', borderRadius: '999px',
+                        backgroundColor: 'rgba(26,104,255,0.1)', borderRadius: '999px',
                         padding: '6px 14px', marginBottom: '24px',
-                        border: '1px solid rgba(212,255,0,0.2)'
+                        border: '1px solid rgba(26,104,255,0.2)'
                     }}>
-                        <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#D4FF00' }} />
-                        <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#D4FF00', letterSpacing: '0.08em' }}>
+                        <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#1A68FF' }} />
+                        <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#1A68FF', letterSpacing: '0.08em' }}>
                             DIGITIZE YOUR CHIT FUND
                         </span>
                     </div>
@@ -97,7 +97,7 @@ export default function Intro() {
                         fontSize: '3.5rem', fontWeight: '900', color: '#FFFFFF',
                         lineHeight: 1, letterSpacing: '-0.03em', marginBottom: '16px'
                     }}>
-                        ROSCA <span style={{ color: '#D4FF00' }}>Manager</span>
+                        ROSCA <span style={{ color: '#1A68FF' }}>Manager</span>
                     </h1>
                     <p style={{
                         fontSize: '1rem', color: 'rgba(255,255,255,0.55)',
@@ -154,10 +154,10 @@ export default function Intro() {
                     <Link href="/login" style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
                         width: '100%', padding: '18px 28px',
-                        backgroundColor: '#D4FF00', borderRadius: '999px',
-                        fontWeight: '800', fontSize: '1.05rem', color: '#000',
+                        backgroundColor: '#1A68FF', borderRadius: '999px',
+                        fontWeight: '800', fontSize: '1.05rem', color: '#fff',
                         textDecoration: 'none',
-                        boxShadow: '0 0 32px rgba(212,255,0,0.3)',
+                        boxShadow: '0 0 32px rgba(26,104,255,0.3)',
                         transition: 'all 0.2s',
                     }}>
                         Get Started <ArrowRight size={20} strokeWidth={2.5} />
@@ -167,7 +167,7 @@ export default function Intro() {
                         fontSize: '0.9rem', color: 'rgba(255,255,255,0.4)',
                         fontWeight: '600', textDecoration: 'none'
                     }}>
-                        Already have an account? <span style={{ color: '#D4FF00' }}>Sign In</span>
+                        Already have an account? <span style={{ color: '#1A68FF' }}>Sign In</span>
                     </Link>
                 </div>
             </div>

@@ -102,18 +102,18 @@ export default function PaymentActionClient({ groupId, cycleMonth, amount }: {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {/* Payment Amount Card */}
             <div style={{
-                backgroundColor: '#1A1A1A', borderRadius: '20px', padding: '24px 20px',
+                backgroundColor: 'var(--card-bg-dark)', borderRadius: '20px', padding: '24px 20px',
                 marginBottom: '20px', textAlign: 'center', position: 'relative', overflow: 'hidden'
             }}>
                 <div style={{
                     position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px',
-                    background: 'radial-gradient(circle, rgba(212,255,0,0.1) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(26,104,255,0.15) 0%, transparent 70%)',
                     borderRadius: '50%', pointerEvents: 'none'
                 }} />
                 <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', fontWeight: '700', letterSpacing: '0.08em', marginBottom: '6px' }}>
                     AMOUNT DUE
                 </div>
-                <div style={{ fontSize: '3rem', fontWeight: '900', color: '#D4FF00', letterSpacing: '-0.03em', lineHeight: 1 }}>
+                <div style={{ fontSize: '3rem', fontWeight: '900', color: 'var(--primary-accent)', letterSpacing: '-0.03em', lineHeight: 1 }}>
                     ₹{amount.toLocaleString('en-IN')}
                 </div>
                 <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', fontWeight: '600', marginTop: '8px' }}>
@@ -187,10 +187,10 @@ export default function PaymentActionClient({ groupId, cycleMonth, amount }: {
             <button onClick={handlePay} disabled={loading} style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
                 width: '100%', padding: '18px',
-                backgroundColor: loading ? '#999' : '#1A1A1A', color: '#fff',
+                backgroundColor: loading ? 'var(--text-muted)' : 'var(--primary-accent)', color: 'var(--text-light)',
                 borderRadius: '999px', border: 'none', cursor: loading ? 'not-allowed' : 'pointer',
                 fontWeight: '800', fontSize: '1rem', fontFamily: 'var(--font-family)',
-                transition: 'all 0.2s', boxShadow: loading ? 'none' : '0 4px 20px rgba(0,0,0,0.15)'
+                transition: 'all 0.2s', boxShadow: loading ? 'none' : '0 4px 20px rgba(26,104,255,0.15)'
             }}>
                 {loading ? (
                     <>Processing...</>

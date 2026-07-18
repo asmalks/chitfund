@@ -50,86 +50,64 @@ export default async function Home() {
     const firstName = profile?.name?.split(' ')[0] || 'there';
 
     return (
-        <main className="container" style={{ paddingBottom: '120px' }}>
-
-            {/* Greeting Header */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', marginTop: '8px' }}>
-                <div>
-                    <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '600', marginBottom: '2px' }}>Good day,</p>
-                    <h1 className="heading-1" style={{ marginBottom: 0 }}>Hey, {firstName} 👋</h1>
-                </div>
-                <Link href="/notifications" style={{
-                    position: 'relative', width: '44px', height: '44px', borderRadius: '50%',
-                    backgroundColor: 'var(--card-bg)', display: 'flex', alignItems: 'center',
-                    justifyContent: 'center', color: 'var(--text-primary)',
-                    boxShadow: 'var(--shadow-sm)', border: '1px solid rgba(0,0,0,0.04)'
-                }}>
-                    <Bell size={20} strokeWidth={2} />
-                    {(unreadCount || 0) > 0 && (
-                        <span style={{
-                            position: 'absolute', top: '6px', right: '6px', width: '10px', height: '10px',
-                            borderRadius: '50%', backgroundColor: '#FF3B30', border: '2px solid var(--bg-color)'
-                        }} />
-                    )}
-                </Link>
-            </div>
+        <main className="container" style={{ paddingBottom: '120px', paddingTop: '10px' }}>
 
             {/* Portfolio Hero Card */}
             <div className="card card-dark" style={{
                 position: 'relative', overflow: 'hidden',
-                padding: '28px 24px', marginBottom: '16px',
-                background: 'linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 100%)'
+                padding: '28px 24px', marginBottom: '20px',
             }}>
                 <div style={{
                     position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px',
-                    background: 'radial-gradient(circle, rgba(212,255,0,0.12) 0%, rgba(0,0,0,0) 70%)',
+                    background: 'radial-gradient(circle, rgba(26,104,255,0.2) 0%, rgba(0,0,0,0) 70%)',
                     borderRadius: '50%', pointerEvents: 'none'
                 }} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
-                        <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.45)', fontWeight: '700', letterSpacing: '0.08em' }}>
-                            YOUR PORTFOLIO
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)', fontWeight: '700', letterSpacing: '0.08em' }}>
+                            TOTAL SAVINGS POT
                         </span>
-                        <span style={{
-                            backgroundColor: '#D4FF00', color: '#000', padding: '3px 10px',
-                            borderRadius: '999px', fontSize: '0.68rem', fontWeight: '800', letterSpacing: '0.05em'
+                        <span className="badge" style={{
+                            backgroundColor: 'rgba(52, 199, 89, 0.2)', color: '#34C759', fontSize: '0.68rem', fontWeight: '800', padding: '4px 10px'
                         }}>ACTIVE</span>
                     </div>
-                    <div style={{ fontSize: '2.8rem', fontWeight: '900', color: '#D4FF00', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: '18px' }}>
+                    <div style={{ fontSize: '2.8rem', fontWeight: '900', color: 'var(--text-light)', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: '20px' }}>
                         ₹{totalPot.toLocaleString('en-IN')}
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                         <Link href="/dashboard/groups" style={{
                             padding: '14px', borderRadius: '14px', display: 'block', textAlign: 'center',
                             backgroundColor: 'rgba(255,255,255,0.08)', color: '#fff',
-                            fontWeight: '700', fontSize: '0.9rem', textDecoration: 'none'
+                            fontWeight: '700', fontSize: '0.9rem', textDecoration: 'none',
+                            transition: 'background 0.2s', border: '1px solid rgba(255,255,255,0.05)'
                         }}>My Groups</Link>
                         <Link href="/dashboard/groups/create" style={{
                             padding: '14px', borderRadius: '14px', display: 'block', textAlign: 'center',
-                            backgroundColor: '#D4FF00', color: '#000',
-                            fontWeight: '800', fontSize: '0.9rem', textDecoration: 'none'
+                            backgroundColor: '#FFFFFF', color: '#161920',
+                            fontWeight: '800', fontSize: '0.9rem', textDecoration: 'none',
+                            transition: 'transform 0.1s'
                         }}>New Group</Link>
                     </div>
                 </div>
             </div>
 
             {/* Stat Pills */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '28px' }}>
                 <div className="card" style={{ marginBottom: 0, padding: '18px 20px' }}>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: '600', marginBottom: '6px' }}>Pending Dues</div>
-                    <div style={{ fontSize: '1.6rem', fontWeight: '900', color: (duePayments?.length || 0) > 0 ? '#FF3B30' : 'var(--text-primary)' }}>
+                    <div style={{ fontSize: '1.6rem', fontWeight: '900', color: (duePayments?.length || 0) > 0 ? 'var(--danger)' : 'var(--text-primary)', letterSpacing: '-0.02em' }}>
                         {(duePayments?.length || 0) > 0 ? `₹${((duePayments as any[]).reduce((s, p) => s + (p.amount || 0), 0)).toLocaleString('en-IN')}` : '₹0'}
                     </div>
                     {(duePayments?.length || 0) > 0 && (
-                        <div style={{ fontSize: '0.75rem', color: '#FF3B30', fontWeight: '700', marginTop: '4px' }}>
+                        <div style={{ fontSize: '0.72rem', color: 'var(--danger)', fontWeight: '700', marginTop: '4px' }}>
                             {duePayments?.length} due
                         </div>
                     )}
                 </div>
                 <div className="card" style={{ marginBottom: 0, padding: '18px 20px' }}>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: '600', marginBottom: '6px' }}>Active Groups</div>
-                    <div style={{ fontSize: '1.6rem', fontWeight: '900', color: 'var(--text-primary)' }}>{activeGroups.length}</div>
-                    <div style={{ fontSize: '0.75rem', color: activeGroups.length > 0 ? '#34C759' : 'var(--text-muted)', fontWeight: '700', marginTop: '4px' }}>
+                    <div style={{ fontSize: '1.6rem', fontWeight: '900', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>{activeGroups.length}</div>
+                    <div style={{ fontSize: '0.72rem', color: activeGroups.length > 0 ? 'var(--success)' : 'var(--text-muted)', fontWeight: '700', marginTop: '4px' }}>
                         {activeGroups.length > 0 ? 'All running' : 'None active'}
                     </div>
                 </div>
@@ -138,43 +116,41 @@ export default async function Home() {
             {/* My Groups quick view */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
                 <h2 className="heading-2" style={{ marginBottom: 0 }}>My Groups</h2>
-                <Link href="/dashboard/groups" style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: '700' }}>View all →</Link>
+                <Link href="/dashboard/groups" style={{ fontSize: '0.8rem', color: 'var(--primary-accent)', fontWeight: '700' }}>View all →</Link>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '28px' }}>
                 {allGroups.slice(0, 3).map((group: any) => (
                     <Link key={group.id} href={`/dashboard/groups/${group.id}`} style={{ textDecoration: 'none' }}>
                         <div style={{
-                            backgroundColor: 'var(--card-bg)', borderRadius: '18px', padding: '16px 18px',
-                            boxShadow: 'var(--shadow-sm)', border: '1px solid rgba(0,0,0,0.04)',
+                            backgroundColor: 'var(--card-bg)', borderRadius: '20px', padding: '16px 18px',
+                            boxShadow: 'var(--shadow-sm)', border: '1px solid rgba(0,0,0,0.02)',
                             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                             position: 'relative', overflow: 'hidden'
                         }}>
                             <div style={{
                                 position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px',
-                                backgroundColor: group.status === 'active' ? '#34C759' : '#FFCC00'
+                                backgroundColor: group.status === 'active' ? 'var(--success)' : 'var(--warning)'
                             }} />
                             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', paddingLeft: '8px' }}>
                                 <div style={{
                                     width: '42px', height: '42px', borderRadius: '14px',
-                                    backgroundColor: group.is_admin ? 'rgba(255,204,0,0.1)' : 'var(--bg-color)',
+                                    backgroundColor: group.is_admin ? 'rgba(255,204,0,0.08)' : 'rgba(26,104,255,0.06)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
                                 }}>
                                     {group.is_admin
-                                        ? <Crown size={20} color="#B28E00" strokeWidth={2} />
-                                        : <Users size={20} color="var(--text-secondary)" strokeWidth={2} />}
+                                        ? <Crown size={20} color="var(--warning)" strokeWidth={2} />
+                                        : <Users size={20} color="var(--primary-accent)" strokeWidth={2} />}
                                 </div>
                                 <div>
-                                    <div style={{ fontWeight: '800', fontSize: '0.9rem' }}>{group.name}</div>
+                                    <div style={{ fontWeight: '800', fontSize: '0.9rem', color: 'var(--text-primary)' }}>{group.name}</div>
                                     <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: '600' }}>₹{group.monthly_amount?.toLocaleString('en-IN')}/mo · {group.max_members}m</div>
                                 </div>
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <span style={{
-                                    padding: '3px 10px', borderRadius: '999px', fontSize: '0.68rem', fontWeight: '800',
-                                    backgroundColor: group.status === 'active' ? 'rgba(52,199,89,0.1)' : 'rgba(255,204,0,0.1)',
-                                    color: group.status === 'active' ? '#1A7F37' : '#B28E00', textTransform: 'uppercase'
-                                }}>{group.status}</span>
+                                <span className={`badge ${group.status === 'active' ? 'badge-success' : 'badge-warning'}`} style={{ fontSize: '0.65rem' }}>
+                                    {group.status}
+                                </span>
                                 <ChevronRight size={16} color="var(--text-muted)" />
                             </div>
                         </div>
@@ -183,7 +159,7 @@ export default async function Home() {
                 {allGroups.length === 0 && (
                     <Link href="/dashboard/groups/create" style={{ textDecoration: 'none' }}>
                         <div style={{
-                            backgroundColor: 'var(--card-bg)', borderRadius: '18px', padding: '32px',
+                            backgroundColor: 'var(--card-bg)', borderRadius: '20px', padding: '32px',
                             textAlign: 'center', border: '2px dashed var(--input-border)'
                         }}>
                             <p style={{ fontWeight: '700', color: 'var(--text-secondary)' }}>No groups yet — create one!</p>
@@ -194,30 +170,30 @@ export default async function Home() {
 
             {/* Upcoming Payments */}
             <h2 className="heading-2">Upcoming Payments</h2>
-            <div className="card" style={{ padding: '8px 16px' }}>
+            <div className="card" style={{ padding: '8px 16px', marginBottom: '24px' }}>
                 {(duePayments && duePayments.length > 0) ? (
                     (duePayments as any[]).slice(0, 4).map((p: any) => (
                         <Link key={p.id} href={`/dashboard/groups/${p.group_id}/pay/${p.cycle_month}`} style={{ textDecoration: 'none' }}>
-                            <div className="flex-between" style={{ padding: '14px 0', borderBottom: '1px solid var(--input-border)' }}>
+                            <div className="flex-between" style={{ padding: '14px 0', borderBottom: '1px solid rgba(0,0,0,0.03)' }}>
                                 <div className="flex-row gap-md">
                                     <div style={{
                                         width: '42px', height: '42px', borderRadius: '14px',
-                                        backgroundColor: 'rgba(255,59,48,0.08)',
+                                        backgroundColor: 'rgba(255,59,48,0.06)',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        fontWeight: '800', fontSize: '0.9rem', color: '#FF3B30'
+                                        fontWeight: '800', fontSize: '0.9rem', color: 'var(--danger)'
                                     }}>
                                         {(p.groups?.name || 'G').charAt(0)}
                                     </div>
                                     <div className="flex-col">
-                                        <span style={{ fontWeight: '700', fontSize: '0.9rem' }}>{p.groups?.name || 'Group'}</span>
+                                        <span style={{ fontWeight: '700', fontSize: '0.9rem', color: 'var(--text-primary)' }}>{p.groups?.name || 'Group'}</span>
                                         <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: '600' }}>
                                             Cycle {p.cycle_month}
                                         </span>
                                     </div>
                                 </div>
                                 <div className="flex-col" style={{ alignItems: 'flex-end' }}>
-                                    <span style={{ fontWeight: '800', fontSize: '1rem' }}>₹{(p.amount || 0).toLocaleString('en-IN')}</span>
-                                    <span style={{ color: '#FF3B30', fontSize: '0.72rem', fontWeight: '800' }}>PAY NOW</span>
+                                    <span style={{ fontWeight: '800', fontSize: '1rem', color: 'var(--text-primary)' }}>₹{(p.amount || 0).toLocaleString('en-IN')}</span>
+                                    <span style={{ color: 'var(--danger)', fontSize: '0.72rem', fontWeight: '800', letterSpacing: '0.05em' }}>PAY NOW</span>
                                 </div>
                             </div>
                         </Link>
@@ -225,7 +201,7 @@ export default async function Home() {
                 ) : (
                     <div style={{ padding: '28px 16px', textAlign: 'center' }}>
                         <div style={{ fontSize: '2rem', marginBottom: '8px' }}>🎉</div>
-                        <p style={{ fontWeight: '700', fontSize: '0.9rem', marginBottom: '4px' }}>All Caught Up!</p>
+                        <p style={{ fontWeight: '700', fontSize: '0.9rem', marginBottom: '4px', color: 'var(--text-primary)' }}>All Caught Up!</p>
                         <p style={{ color: 'var(--text-secondary)', fontSize: '0.82rem', fontWeight: '500' }}>No pending payments.</p>
                     </div>
                 )}

@@ -8,18 +8,15 @@ export default function TopBar({ userName }: { userName?: string }) {
     const initial = userName ? userName.charAt(0).toUpperCase() : <User size={18} />;
 
     return (
-        <header style={{
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            padding: '16px 24px', backgroundColor: 'var(--bg-color)', /* Blends with bg */
-            position: 'sticky', top: 0, zIndex: 40
-        }}>
+        <header className="top-bar">
             <div className="flex-row gap-sm">
                 <Link href="/profile" style={{
                     width: '44px', height: '44px', borderRadius: '50%',
-                    backgroundColor: 'var(--primary-accent)', display: 'flex',
+                    backgroundColor: 'rgba(26, 104, 255, 0.1)', display: 'flex',
                     alignItems: 'center', justifyContent: 'center',
-                    color: 'var(--secondary-accent)', fontWeight: '800',
-                    fontSize: '1.2rem', boxShadow: 'var(--shadow-sm)'
+                    color: 'var(--primary-accent)', fontWeight: '800',
+                    fontSize: '1.1rem', boxShadow: 'var(--shadow-sm)',
+                    border: '1px solid rgba(26, 104, 255, 0.15)'
                 }}>
                     {initial}
                 </Link>

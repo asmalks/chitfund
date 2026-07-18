@@ -93,6 +93,7 @@ export default function CreateGroup() {
 
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-color)', fontFamily: 'var(--font-family)' }}>
+            <div className="container" style={{ padding: 0, minHeight: 'auto' }}>
 
             {/* Dark Header */}
             <div style={{
@@ -102,7 +103,7 @@ export default function CreateGroup() {
             }}>
                 <div style={{
                     position: 'absolute', top: '-40px', right: '-40px', width: '160px', height: '160px',
-                    background: 'radial-gradient(circle, rgba(212,255,0,0.1) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(26,104,255,0.15) 0%, transparent 70%)',
                     borderRadius: '50%', pointerEvents: 'none'
                 }} />
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px', position: 'relative', zIndex: 1 }}>
@@ -125,12 +126,12 @@ export default function CreateGroup() {
                         <div key={s.step} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
                             <div style={{
                                 height: '4px', width: '100%', borderRadius: '999px',
-                                backgroundColor: step >= s.step ? '#D4FF00' : 'rgba(255,255,255,0.15)',
+                                backgroundColor: step >= s.step ? 'var(--primary-accent)' : 'rgba(255,255,255,0.15)',
                                 transition: 'background 0.3s'
                             }} />
                             <span style={{
                                 fontSize: '0.65rem', fontWeight: '700',
-                                color: step >= s.step ? '#D4FF00' : 'rgba(255,255,255,0.3)',
+                                color: step >= s.step ? 'var(--primary-accent)' : 'rgba(255,255,255,0.3)',
                                 letterSpacing: '0.04em'
                             }}>
                                 {s.label.toUpperCase()}
@@ -154,9 +155,12 @@ export default function CreateGroup() {
                             <div>
                                 <label style={labelStyle}>Group Name</label>
                                 <input
-                                    type="text" name="name" value={formData.name}
-                                    onChange={handle} placeholder="e.g. Family Savings Circle"
-                                    style={inputStyle} autoFocus
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handle}
+                                    placeholder="e.g. Friends Trip, Family Pot..."
+                                    autoFocus
                                 />
                             </div>
                         </div>
@@ -168,7 +172,7 @@ export default function CreateGroup() {
                                 {['Office ROSCA', 'Family Circle', 'Friends Fund', 'Community Pot'].map(s => (
                                     <button key={s} onClick={() => setFormData({ ...formData, name: s })} style={{
                                         padding: '8px 16px', borderRadius: '999px',
-                                        backgroundColor: formData.name === s ? '#1A1A1A' : 'var(--card-bg)',
+                                        backgroundColor: formData.name === s ? 'var(--primary-accent)' : 'var(--card-bg)',
                                         color: formData.name === s ? '#fff' : 'var(--text-secondary)',
                                         fontWeight: '700', fontSize: '0.82rem', border: 'none', cursor: 'pointer',
                                         boxShadow: 'var(--shadow-sm)', fontFamily: 'var(--font-family)'
@@ -191,12 +195,12 @@ export default function CreateGroup() {
                                 <div>
                                     <label style={labelStyle}>Monthly Contribution (₹)</label>
                                     <input type="number" name="monthly_amount" value={formData.monthly_amount} onChange={handle}
-                                        min="100" placeholder="5000" style={inputStyle} />
+                                        min="100" placeholder="5000" />
                                 </div>
                                 <div>
                                     <label style={labelStyle}>Max Members</label>
                                     <input type="number" name="max_members" value={formData.max_members} onChange={handle}
-                                        min="2" max="100" placeholder="12" style={inputStyle} />
+                                        min="2" max="100" placeholder="12" />
                                 </div>
                             </div>
                         </div>
@@ -204,21 +208,21 @@ export default function CreateGroup() {
                         {/* Live pot preview */}
                         {totalPot > 0 && (
                             <div style={{
-                                backgroundColor: '#1A1A1A', borderRadius: '20px', padding: '20px 22px',
+                                backgroundColor: 'var(--card-bg-dark)', borderRadius: '20px', padding: '20px 22px',
                                 display: 'flex', justifyContent: 'space-between', alignItems: 'center'
                             }}>
                                 <div>
                                     <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', fontWeight: '700', letterSpacing: '0.06em', marginBottom: '4px' }}>MONTHLY POT SIZE</div>
-                                    <div style={{ fontSize: '2rem', fontWeight: '900', color: '#D4FF00', letterSpacing: '-0.02em' }}>
+                                    <div style={{ fontSize: '2rem', fontWeight: '900', color: 'var(--primary-accent)', letterSpacing: '-0.02em' }}>
                                         ₹{totalPot.toLocaleString('en-IN')}
                                     </div>
                                 </div>
                                 <div style={{
                                     width: '56px', height: '56px', borderRadius: '50%',
-                                    backgroundColor: 'rgba(212,255,0,0.1)',
+                                    backgroundColor: 'rgba(26,104,255,0.12)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center'
                                 }}>
-                                    <Users size={24} color="#D4FF00" strokeWidth={2} />
+                                    <Users size={24} color="var(--primary-accent)" strokeWidth={2} />
                                 </div>
                             </div>
                         )}
@@ -239,19 +243,19 @@ export default function CreateGroup() {
                                     {[6, 12, 18, 24].map(d => (
                                         <button key={d} onClick={() => setFormData({ ...formData, duration_months: d.toString() })} style={{
                                             padding: '10px 20px', borderRadius: '999px',
-                                            backgroundColor: formData.duration_months === d.toString() ? '#1A1A1A' : 'var(--bg-color)',
-                                            color: formData.duration_months === d.toString() ? '#D4FF00' : 'var(--text-secondary)',
+                                            backgroundColor: formData.duration_months === d.toString() ? 'var(--primary-accent)' : 'var(--bg-color)',
+                                            color: formData.duration_months === d.toString() ? '#fff' : 'var(--text-secondary)',
                                             fontWeight: '800', fontSize: '0.88rem', border: 'none', cursor: 'pointer',
                                             fontFamily: 'var(--font-family)'
                                         }}>{d}m</button>
                                     ))}
                                 </div>
                                 <input type="number" name="duration_months" value={formData.duration_months} onChange={handle}
-                                    min="2" max="60" placeholder="Custom months..." style={inputStyle} />
+                                    min="2" max="60" placeholder="Custom months..." />
                             </div>
                             <div>
                                 <label style={labelStyle}>Start Date</label>
-                                <input type="date" name="start_date" value={formData.start_date} onChange={handle} style={inputStyle} />
+                                <input type="date" name="start_date" value={formData.start_date} onChange={handle} />
                             </div>
                         </div>
                     </div>
@@ -260,14 +264,14 @@ export default function CreateGroup() {
                 {/* STEP 4: Review */}
                 {step === 4 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        <div style={{ backgroundColor: '#1A1A1A', borderRadius: '24px', padding: '28px 22px', position: 'relative', overflow: 'hidden' }}>
+                        <div style={{ backgroundColor: 'var(--card-bg-dark)', borderRadius: '24px', padding: '28px 22px', position: 'relative', overflow: 'hidden' }}>
                             <div style={{
                                 position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px',
-                                background: 'radial-gradient(circle, rgba(212,255,0,0.12) 0%, transparent 70%)',
+                                background: 'radial-gradient(circle, rgba(26,104,255,0.15) 0%, transparent 70%)',
                                 borderRadius: '50%', pointerEvents: 'none'
                             }} />
                             <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)', fontWeight: '700', letterSpacing: '0.08em', marginBottom: '6px' }}>TOTAL POT</div>
-                            <div style={{ fontSize: '2.5rem', fontWeight: '900', color: '#D4FF00', letterSpacing: '-0.03em', marginBottom: '4px' }}>
+                            <div style={{ fontSize: '2.5rem', fontWeight: '900', color: 'var(--primary-accent)', letterSpacing: '-0.03em', marginBottom: '4px' }}>
                                 ₹{totalPot.toLocaleString('en-IN')}
                             </div>
                             <div style={{ fontSize: '1.1rem', fontWeight: '800', color: '#fff' }}>{formData.name}</div>
@@ -293,9 +297,9 @@ export default function CreateGroup() {
 
                         {error && (
                             <div style={{
-                                backgroundColor: 'rgba(255,59,48,0.08)', color: '#FF3B30', padding: '14px 16px',
+                                backgroundColor: 'rgba(255,59,48,0.08)', color: 'var(--danger)', padding: '14px 16px',
                                 borderRadius: '16px', fontSize: '0.85rem', fontWeight: '600',
-                                border: '1px solid rgba(255,59,48,0.2)'
+                                border: '1px solid rgba(255,59,48,0.15)'
                             }}>{error}</div>
                         )}
                     </div>
@@ -318,8 +322,8 @@ export default function CreateGroup() {
                         disabled={!canProceed() || loading}
                         style={{
                             flex: 1, padding: '16px 24px', borderRadius: '999px', border: 'none',
-                            backgroundColor: canProceed() && !loading ? '#1A1A1A' : '#ccc',
-                            color: canProceed() && !loading ? '#fff' : '#999',
+                            backgroundColor: canProceed() && !loading ? 'var(--primary-accent)' : 'rgba(0,0,0,0.12)',
+                            color: canProceed() && !loading ? 'var(--text-light)' : 'var(--text-muted)',
                             fontWeight: '800', fontSize: '1rem', cursor: canProceed() && !loading ? 'pointer' : 'not-allowed',
                             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
                             fontFamily: 'var(--font-family)', transition: 'all 0.2s'
@@ -333,5 +337,6 @@ export default function CreateGroup() {
                 </div>
             </div>
         </div>
+    </div>
     );
 }

@@ -48,6 +48,7 @@ export default function GroupDashboardClient({ group, isAdmin, membership, initi
 
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-color)', fontFamily: 'var(--font-family)' }}>
+            <div className="container" style={{ padding: 0, minHeight: 'auto' }}>
 
             {/* Hero Header */}
             <div style={{
@@ -91,7 +92,7 @@ export default function GroupDashboardClient({ group, isAdmin, membership, initi
                 {/* Group Name + Pot */}
                 <div style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                        {isAdmin && <Crown size={16} color="#D4FF00" />}
+                        {isAdmin && <Crown size={16} color="var(--warning)" />}
                         <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                             {isAdmin ? 'Admin' : 'Member'}
                         </span>
@@ -99,7 +100,7 @@ export default function GroupDashboardClient({ group, isAdmin, membership, initi
                     <h1 style={{ fontSize: '1.8rem', fontWeight: '900', color: '#fff', letterSpacing: '-0.02em', marginBottom: '6px' }}>
                         {group.name}
                     </h1>
-                    <div style={{ fontSize: '2.8rem', fontWeight: '900', color: '#D4FF00', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: '16px' }}>
+                    <div style={{ fontSize: '2.8rem', fontWeight: '900', color: 'var(--text-light)', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: '16px' }}>
                         ₹{totalPot.toLocaleString('en-IN')}
                         <span style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.4)', fontWeight: '600', marginLeft: '6px' }}>Pot</span>
                     </div>
@@ -147,7 +148,7 @@ export default function GroupDashboardClient({ group, isAdmin, membership, initi
                     {TABS.map(t => (
                         <button key={t} onClick={() => setTab(t)} style={{
                             flex: 1, padding: '10px 4px', borderRadius: '12px', border: 'none',
-                            backgroundColor: tab === t ? '#1A1A1A' : 'transparent',
+                            backgroundColor: tab === t ? 'var(--primary-accent)' : 'transparent',
                             color: tab === t ? '#fff' : 'var(--text-secondary)',
                             fontWeight: '700', fontSize: '0.78rem', cursor: 'pointer',
                             transition: 'all 0.2s', fontFamily: 'var(--font-family)'
@@ -183,7 +184,7 @@ export default function GroupDashboardClient({ group, isAdmin, membership, initi
                                 <div style={{ height: '8px', backgroundColor: 'var(--input-bg)', borderRadius: '999px', overflow: 'hidden', marginBottom: '8px' }}>
                                     <div style={{
                                         height: '100%', width: `${collectionProgress}%`,
-                                        backgroundColor: '#1A1A1A', borderRadius: '999px',
+                                        backgroundColor: 'var(--primary-accent)', borderRadius: '999px',
                                         transition: 'width 0.5s ease'
                                     }} />
                                 </div>
@@ -210,22 +211,22 @@ export default function GroupDashboardClient({ group, isAdmin, membership, initi
                             {isAdmin ? (
                                 <>
                                     <Link href={`/dashboard/groups/${group.id}/members`} style={{ textDecoration: 'none' }}>
-                                        <div style={{ backgroundColor: 'var(--card-bg)', borderRadius: '20px', padding: '18px', boxShadow: 'var(--shadow-sm)', textAlign: 'center' }}>
-                                            <div style={{ width: '40px', height: '40px', borderRadius: '12px', backgroundColor: 'rgba(0,0,0,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
-                                                <Users size={20} color="var(--text-primary)" />
+                                        <div style={{ backgroundColor: 'var(--card-bg)', borderRadius: '20px', padding: '18px', boxShadow: 'var(--shadow-sm)', textAlign: 'center', border: '1px solid rgba(0,0,0,0.01)' }}>
+                                            <div style={{ width: '40px', height: '40px', borderRadius: '12px', backgroundColor: 'rgba(26,104,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
+                                                <Users size={20} color="var(--primary-accent)" />
                                             </div>
-                                            <div style={{ fontWeight: '700', fontSize: '0.85rem' }}>Members</div>
+                                            <div style={{ fontWeight: '700', fontSize: '0.85rem', color: 'var(--text-primary)' }}>Members</div>
                                             {pendingMembers.length > 0 && (
-                                                <div style={{ marginTop: '4px', fontSize: '0.72rem', color: '#FF9F0A', fontWeight: '700' }}>
+                                                <div style={{ marginTop: '4px', fontSize: '0.72rem', color: 'var(--warning)', fontWeight: '700' }}>
                                                     {pendingMembers.length} pending
                                                 </div>
                                             )}
                                         </div>
                                     </Link>
                                     <Link href={`/dashboard/groups/${group.id}/payout/1`} style={{ textDecoration: 'none' }}>
-                                        <div style={{ backgroundColor: '#1A1A1A', borderRadius: '20px', padding: '18px', boxShadow: 'var(--shadow-sm)', textAlign: 'center' }}>
-                                            <div style={{ width: '40px', height: '40px', borderRadius: '12px', backgroundColor: 'rgba(212,255,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
-                                                <TrendingUp size={20} color="#D4FF00" />
+                                        <div style={{ backgroundColor: 'var(--card-bg-dark)', borderRadius: '20px', padding: '18px', boxShadow: 'var(--shadow-sm)', textAlign: 'center' }}>
+                                            <div style={{ width: '40px', height: '40px', borderRadius: '12px', backgroundColor: 'rgba(26,104,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
+                                                <TrendingUp size={20} color="var(--primary-accent)" />
                                             </div>
                                             <div style={{ fontWeight: '700', fontSize: '0.85rem', color: '#fff' }}>Payouts</div>
                                         </div>
@@ -234,19 +235,19 @@ export default function GroupDashboardClient({ group, isAdmin, membership, initi
                             ) : (
                                 <>
                                     <Link href={`/dashboard/groups/${group.id}/pay/1`} style={{ textDecoration: 'none' }}>
-                                        <div style={{ backgroundColor: '#1A1A1A', borderRadius: '20px', padding: '18px', boxShadow: 'var(--shadow-sm)', textAlign: 'center' }}>
-                                            <div style={{ width: '40px', height: '40px', borderRadius: '12px', backgroundColor: 'rgba(212,255,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
-                                                <Check size={20} color="#D4FF00" />
+                                        <div style={{ backgroundColor: 'var(--card-bg-dark)', borderRadius: '20px', padding: '18px', boxShadow: 'var(--shadow-sm)', textAlign: 'center' }}>
+                                            <div style={{ width: '40px', height: '40px', borderRadius: '12px', backgroundColor: 'rgba(26,104,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
+                                                <Check size={20} color="var(--primary-accent)" />
                                             </div>
                                             <div style={{ fontWeight: '700', fontSize: '0.85rem', color: '#fff' }}>Pay Dues</div>
                                         </div>
                                     </Link>
                                     <Link href={`/dashboard/groups/${group.id}/invite`} style={{ textDecoration: 'none' }}>
-                                        <div style={{ backgroundColor: 'var(--card-bg)', borderRadius: '20px', padding: '18px', boxShadow: 'var(--shadow-sm)', textAlign: 'center' }}>
-                                            <div style={{ width: '40px', height: '40px', borderRadius: '12px', backgroundColor: 'var(--bg-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
-                                                <UserPlus size={20} color="var(--text-primary)" />
+                                        <div style={{ backgroundColor: 'var(--card-bg)', borderRadius: '20px', padding: '18px', boxShadow: 'var(--shadow-sm)', textAlign: 'center', border: '1px solid rgba(0,0,0,0.01)' }}>
+                                            <div style={{ width: '40px', height: '40px', borderRadius: '12px', backgroundColor: 'rgba(26,104,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
+                                                <UserPlus size={20} color="var(--primary-accent)" />
                                             </div>
-                                            <div style={{ fontWeight: '700', fontSize: '0.85rem' }}>Invite</div>
+                                            <div style={{ fontWeight: '700', fontSize: '0.85rem', color: 'var(--text-primary)' }}>Invite</div>
                                         </div>
                                     </Link>
                                 </>
@@ -456,8 +457,8 @@ export default function GroupDashboardClient({ group, isAdmin, membership, initi
                                         </div>
                                         <span style={{
                                             padding: '4px 12px', borderRadius: '999px', fontSize: '0.72rem', fontWeight: '800',
-                                            backgroundColor: c < currentCycle ? 'rgba(52,199,89,0.1)' : c === currentCycle ? 'rgba(212,255,0,0.1)' : 'rgba(0,0,0,0.04)',
-                                            color: c < currentCycle ? '#1A7F37' : c === currentCycle ? '#8A9A00' : 'var(--text-muted)'
+                                            backgroundColor: c < currentCycle ? 'rgba(52,199,89,0.08)' : c === currentCycle ? 'rgba(26,104,255,0.08)' : 'rgba(0,0,0,0.04)',
+                                            color: c < currentCycle ? 'var(--success)' : c === currentCycle ? 'var(--primary-accent)' : 'var(--text-muted)'
                                         }}>
                                             {c < currentCycle ? 'Done' : c === currentCycle ? 'Current' : 'Upcoming'}
                                         </span>
@@ -469,5 +470,6 @@ export default function GroupDashboardClient({ group, isAdmin, membership, initi
                 )}
             </div>
         </div>
+    </div>
     );
 }

@@ -5,6 +5,7 @@ import SettingsClient from "./SettingsClient";
 export default async function SettingsPage() {
     return (
         <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-color)', fontFamily: 'var(--font-family)' }}>
+            <div className="container" style={{ padding: 0, minHeight: 'auto' }}>
             
             {/* Header */}
             <div style={{
@@ -46,6 +47,7 @@ export default async function SettingsPage() {
                 <SettingsClient />
             </div>
 
+            </div>
         </div>
     );
 }

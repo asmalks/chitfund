@@ -125,29 +125,29 @@ export default function WinnerClient({ groupId, cycle, totalPot, initialEligible
                     display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px'
                 }}>
                     <div style={{
-                        backgroundColor: '#111', borderRadius: '28px', padding: '32px 24px',
+                        backgroundColor: 'var(--card-bg-dark)', borderRadius: '28px', padding: '32px 24px',
                         width: '100%', maxWidth: '360px', textAlign: 'center',
-                        border: '2.5px solid #D4FF00', boxShadow: '0 0 30px rgba(212,255,0,0.25)',
+                        border: '2px solid var(--primary-accent)', boxShadow: '0 0 30px rgba(26,104,255,0.2)',
                         position: 'relative', overflow: 'hidden'
                     }}>
                         {/* Confetti radial effect */}
                         <div style={{
                             position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
                             width: '280px', height: '280px',
-                            background: 'radial-gradient(circle, rgba(212,255,0,0.1) 0%, transparent 70%)',
+                            background: 'radial-gradient(circle, rgba(26,104,255,0.15) 0%, transparent 70%)',
                             borderRadius: '50%', pointerEvents: 'none'
                         }} />
 
                         <div style={{
                             width: '80px', height: '80px', borderRadius: '50%',
-                            backgroundColor: 'rgba(212,255,0,0.15)',
+                            backgroundColor: 'rgba(26,104,255,0.15)',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            margin: '0 auto 20px', border: '1.5px solid #D4FF00'
+                            margin: '0 auto 20px', border: '1.5px solid var(--primary-accent)'
                         }}>
-                            <Award size={40} color="#D4FF00" strokeWidth={2} />
+                            <Award size={40} color="var(--primary-accent)" strokeWidth={2} />
                         </div>
 
-                        <div style={{ fontSize: '0.72rem', color: '#D4FF00', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>
+                        <div style={{ fontSize: '0.72rem', color: 'var(--primary-accent)', fontWeight: '800', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>
                             WINNER ANNOUNCEMENT
                         </div>
                         <h2 style={{ fontSize: '1.8rem', fontWeight: '900', color: '#fff', letterSpacing: '-0.02em', marginBottom: '4px' }}>
@@ -161,7 +161,7 @@ export default function WinnerClient({ groupId, cycle, totalPot, initialEligible
                             <button onClick={() => alert('Announcement shared!')} style={{
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
                                 width: '100%', padding: '14px', borderRadius: '14px', border: 'none',
-                                backgroundColor: '#D4FF00', color: '#000', fontWeight: '800', fontSize: '0.88rem',
+                                backgroundColor: 'var(--primary-accent)', color: 'var(--text-light)', fontWeight: '800', fontSize: '0.88rem',
                                 cursor: 'pointer', fontFamily: 'var(--font-family)'
                             }}>
                                 <Share2 size={16} strokeWidth={2.5} />

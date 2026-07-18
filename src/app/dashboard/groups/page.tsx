@@ -2,9 +2,9 @@ import Link from "next/link";
 import { PlusCircle, Crown, User, ChevronRight, Users } from "lucide-react";
 
 function statusColor(status: string) {
-    if (status === 'active') return { bg: 'rgba(52,199,89,0.12)', text: '#1A7F37', label: 'Active', bar: '#34C759' };
-    if (status === 'completed') return { bg: 'rgba(160,160,160,0.12)', text: '#666', label: 'Completed', bar: '#aaa' };
-    return { bg: 'rgba(255,204,0,0.12)', text: '#B28E00', label: 'Upcoming', bar: '#FFCC00' };
+    if (status === 'active') return { bg: 'rgba(52,199,89,0.08)', text: 'var(--success)', label: 'Active', bar: 'var(--success)' };
+    if (status === 'completed') return { bg: 'rgba(142,150,166,0.12)', text: 'var(--text-muted)', label: 'Completed', bar: 'var(--text-muted)' };
+    return { bg: 'rgba(255,204,0,0.08)', text: 'var(--warning)', label: 'Upcoming', bar: 'var(--warning)' };
 }
 
 // Mock data for dev bypass mode
@@ -82,7 +82,7 @@ export default async function GroupsList() {
                 <Link href="/dashboard/groups/create" style={{
                     display: 'flex', alignItems: 'center', gap: '6px',
                     padding: '10px 18px', borderRadius: '999px',
-                    backgroundColor: 'var(--secondary-accent)', color: '#fff',
+                    backgroundColor: 'var(--primary-accent)', color: '#fff',
                     fontWeight: '700', fontSize: '0.875rem', textDecoration: 'none'
                 }}>
                     <PlusCircle size={16} strokeWidth={2.5} /> New
@@ -94,17 +94,16 @@ export default async function GroupsList() {
                 <div className="card card-dark" style={{
                     position: 'relative', overflow: 'hidden',
                     padding: '24px', marginBottom: '24px',
-                    background: 'linear-gradient(135deg, #1A1A1A 0%, #111 100%)'
                 }}>
                     <div style={{
                         position: 'absolute', top: '-40px', right: '-40px', width: '180px', height: '180px',
-                        background: 'radial-gradient(circle, rgba(212,255,0,0.12) 0%, transparent 70%)',
+                        background: 'radial-gradient(circle, rgba(26,104,255,0.2) 0%, transparent 70%)',
                         borderRadius: '50%', pointerEvents: 'none'
                     }} />
-                    <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', fontWeight: '700', letterSpacing: '0.08em', marginBottom: '6px' }}>
+                    <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', fontWeight: '700', letterSpacing: '0.08em', marginBottom: '6px' }}>
                         TOTAL POT VALUE
                     </div>
-                    <div style={{ fontSize: '2.5rem', fontWeight: '900', color: '#D4FF00', letterSpacing: '-0.02em', marginBottom: '12px' }}>
+                    <div style={{ fontSize: '2.5rem', fontWeight: '900', color: 'var(--text-light)', letterSpacing: '-0.02em', marginBottom: '12px' }}>
                         ₹{totalPot.toLocaleString('en-IN')}
                     </div>
                     <div style={{ display: 'flex', gap: '16px' }}>
@@ -120,7 +119,7 @@ export default async function GroupsList() {
                             padding: '10px 16px', flex: 1
                         }}>
                             <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', fontWeight: '600' }}>Active</div>
-                            <div style={{ fontSize: '1.3rem', fontWeight: '800', color: '#34C759' }}>{activeCount}</div>
+                            <div style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--success)' }}>{activeCount}</div>
                         </div>
                     </div>
                 </div>
@@ -132,11 +131,11 @@ export default async function GroupsList() {
                     {['All', 'Active', 'Upcoming', 'Completed'].map(f => (
                         <span key={f} style={{
                             padding: '7px 18px', borderRadius: '999px', flexShrink: 0,
-                            backgroundColor: f === 'All' ? 'var(--secondary-accent)' : 'var(--card-bg)',
+                            backgroundColor: f === 'All' ? 'var(--primary-accent)' : 'var(--card-bg)',
                             color: f === 'All' ? '#fff' : 'var(--text-secondary)',
                             fontSize: '0.82rem', fontWeight: '700',
                             boxShadow: 'var(--shadow-sm)', cursor: 'pointer',
-                            border: '1px solid rgba(0,0,0,0.04)'
+                            border: '1px solid rgba(0,0,0,0.015)'
                         }}>{f}</span>
                     ))}
                 </div>
@@ -157,7 +156,7 @@ export default async function GroupsList() {
                                     <div style={{
                                         backgroundColor: 'var(--card-bg)', borderRadius: '20px',
                                         overflow: 'hidden', boxShadow: 'var(--shadow-sm)',
-                                        border: '1px solid rgba(0,0,0,0.04)',
+                                        border: '1px solid rgba(0,0,0,0.02)',
                                         position: 'relative', transition: 'transform 0.2s, box-shadow 0.2s',
                                     }}>
                                         {/* Status left bar */}
@@ -226,7 +225,7 @@ export default async function GroupsList() {
                                 <Link key={group.id} href={`/dashboard/groups/${group.id}`} style={{ textDecoration: 'none', display: 'block' }}>
                                     <div style={{
                                         backgroundColor: 'var(--card-bg)', borderRadius: '20px', overflow: 'hidden',
-                                        boxShadow: 'var(--shadow-sm)', border: '1px solid rgba(0,0,0,0.04)',
+                                        boxShadow: 'var(--shadow-sm)', border: '1px solid rgba(0,0,0,0.02)',
                                         position: 'relative'
                                     }}>
                                         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', backgroundColor: isDue ? '#FF3B30' : s.bar }} />
@@ -235,10 +234,10 @@ export default async function GroupsList() {
                                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                                     <div style={{
                                                         width: '44px', height: '44px', borderRadius: '14px',
-                                                        backgroundColor: 'var(--bg-color)',
+                                                        backgroundColor: 'rgba(26,104,255,0.06)',
                                                         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
                                                     }}>
-                                                        <User size={20} color="var(--text-secondary)" strokeWidth={2} />
+                                                        <User size={20} color="var(--primary-accent)" strokeWidth={2} />
                                                     </div>
                                                     <div>
                                                         <div style={{ fontWeight: '800', fontSize: '1rem', color: 'var(--text-primary)', marginBottom: '2px' }}>
@@ -290,11 +289,11 @@ export default async function GroupsList() {
                 }}>
                     <div style={{
                         width: '72px', height: '72px', borderRadius: '50%',
-                        backgroundColor: 'rgba(212,255,0,0.1)',
+                        backgroundColor: 'rgba(26,104,255,0.08)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         margin: '0 auto 20px'
                     }}>
-                        <Users size={32} color="#D4FF00" strokeWidth={2} />
+                        <Users size={32} color="var(--primary-accent)" strokeWidth={2} />
                     </div>
                     <h3 style={{ fontWeight: '800', fontSize: '1.2rem', marginBottom: '8px' }}>No Groups Yet</h3>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '28px', fontWeight: '500' }}>
@@ -303,7 +302,7 @@ export default async function GroupsList() {
                     <Link href="/dashboard/groups/create" style={{
                         display: 'inline-flex', alignItems: 'center', gap: '8px',
                         padding: '14px 28px', borderRadius: '999px',
-                        backgroundColor: '#D4FF00', color: '#000',
+                        backgroundColor: 'var(--primary-accent)', color: 'var(--text-light)',
                         fontWeight: '800', fontSize: '0.95rem', textDecoration: 'none'
                     }}>
                         <PlusCircle size={18} strokeWidth={2.5} /> Create a Group

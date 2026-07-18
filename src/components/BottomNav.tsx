@@ -16,29 +16,16 @@ export default function BottomNav() {
     ];
 
     return (
-        <nav style={{
-            position: 'fixed', bottom: 24, left: '50%', transform: 'translateX(-50%)',
-            backgroundColor: 'var(--secondary-accent)', // Jet black
-            borderRadius: 'var(--btn-radius)', // Pill shape
-            padding: '12px 24px',
-            display: 'flex', justifyContent: 'space-between',
-            zIndex: 50,
-            width: 'calc(100% - 48px)', // Float with margins
-            maxWidth: '400px', // Don't let it stretch too wide on tablets
-            boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
-        }}>
+        <nav className="bottom-nav">
             <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 {tabs.map((tab) => {
                     const isActive = pathname === tab.href || (tab.href !== "/dashboard" && pathname.startsWith(tab.href));
                     const Icon = tab.icon;
 
                     return (
-                        <Link key={tab.name} href={tab.href} style={{
-                            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px',
-                            color: isActive ? 'var(--primary-accent)' : 'var(--text-muted)'
-                        }}>
-                            <Icon size={24} strokeWidth={isActive ? 2.5 : 2} />
-                            <span style={{ fontSize: '0.65rem', fontWeight: isActive ? '700' : '500', opacity: isActive ? 1 : 0.7 }}>{tab.name}</span>
+                        <Link key={tab.name} href={tab.href} className={`bottom-nav-link ${isActive ? 'active' : ''}`}>
+                            <Icon size={22} strokeWidth={isActive ? 2.5 : 2} />
+                            <span style={{ fontSize: '0.65rem', fontWeight: isActive ? '700' : '600' }}>{tab.name}</span>
                         </Link>
                     );
                 })}
